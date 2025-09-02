@@ -3,7 +3,7 @@ const contactList = document.getElementById("contactList");
 const contactForm = document.getElementById("contactForm");
 const searchInput = document.getElementById("search");
 
-// Fetch all contacts
+// ✅ Fetch all contacts
 async function fetchContacts() {
   try {
     const res = await fetch(API_URL);
@@ -15,7 +15,7 @@ async function fetchContacts() {
   }
 }
 
-//  Render contacts in UI
+// ✅ Render contacts in UI
 function renderContacts(contacts) {
   contactList.innerHTML = "";
   contacts.forEach(contact => {
@@ -31,7 +31,7 @@ function renderContacts(contacts) {
   });
 }
 
-// Add contact
+// ✅ Add contact
 contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = document.getElementById("name").value;
@@ -51,7 +51,7 @@ contactForm.addEventListener("submit", async (e) => {
   }
 });
 
-// Delete contact
+// ✅ Delete contact
 async function deleteContact(id) {
   try {
     await fetch(`${API_URL}/${id}`, { method: "DELETE" });
@@ -62,7 +62,7 @@ async function deleteContact(id) {
   }
 }
 
-// edit contact (example: update phone number)
+// ✅ Edit contact (example: update phone number)
 async function editContact(id) {
   const newPhone = prompt("Enter new phone number:");
   if (!newPhone) return;
@@ -81,7 +81,7 @@ async function editContact(id) {
   }
 }
 
-//  Search contacts
+// ✅ Search contacts
 searchInput.addEventListener("input", async (e) => {
   const searchValue = e.target.value.toLowerCase();
   const res = await fetch(API_URL);
